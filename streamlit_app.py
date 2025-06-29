@@ -62,12 +62,11 @@ with col2:
     ax.legend()
     st.pyplot(fig)
 
-    # Clean summary below chart
-    st.markdown(
-        f"<b>Final Net Worth:</b> ${total[-1]:,.0f}<br>"
-        f"• High-Return Balance: ${high[-1]:,.0f}<br>"
-        f"• Safe Investment Balance: ${safe[-1]:,.0f}",
-        unsafe_allow_html=True
+    # Clean single-line summary
+    st.write(
+        f"Final Net Worth: ${total[-1]:,.0f} | "
+        f"High-Return Balance: ${high[-1]:,.0f} | "
+        f"Safe Investment Balance: ${safe[-1]:,.0f}"
     )
 
     # TQQQ footnote
