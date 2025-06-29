@@ -50,6 +50,11 @@ with col2:
     total = np.array(high) + np.array(safe)
     x = np.arange(0, years + 1)
 
+    # Show summary at top
+    st.subheader(f"Final Net Worth: ${total[-1]:,.0f}")
+    st.write(f"• High-Return Balance: ${high[-1]:,.0f}")
+    st.write(f"• Safe Investment Balance: ${safe[-1]:,.0f}")
+
     # Plot
     fig, ax = plt.subplots(figsize=(8, 4))
     ax.plot(x, np.array(high) / 1e6, label="High-Return Investment")
@@ -61,13 +66,6 @@ with col2:
     ax.grid(True)
     ax.legend()
     st.pyplot(fig)
-
-    # Clean single-line summary
-    st.write(
-        f"Final Net Worth: ${total[-1]:,.0f} | "
-        f"High-Return Balance: ${high[-1]:,.0f} | "
-        f"Safe Investment Balance: ${safe[-1]:,.0f}"
-    )
 
     # TQQQ footnote
     st.caption("*Historical average annual return of TQQQ: ~33% (10y), ~40% (15y), ~30% (since inception).")
