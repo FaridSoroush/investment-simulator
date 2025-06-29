@@ -62,12 +62,13 @@ with col2:
     ax.legend()
     st.pyplot(fig)
 
-    # Post-plot net worth summary
-    st.markdown(f"""
-    **Final Net Worth: ${total[-1]:,.0f}**  
-    • High-Return Balance: ${high[-1]:,.0f}  
-    • Safe Investment Balance: ${safe[-1]:,.0f}
-    """)
+    # Clean summary below chart
+    st.markdown(
+        f"<b>Final Net Worth:</b> ${total[-1]:,.0f}<br>"
+        f"• High-Return Balance: ${high[-1]:,.0f}<br>"
+        f"• Safe Investment Balance: ${safe[-1]:,.0f}",
+        unsafe_allow_html=True
+    )
 
     # TQQQ footnote
     st.caption("*Historical average annual return of TQQQ: ~33% (10y), ~40% (15y), ~30% (since inception).")
