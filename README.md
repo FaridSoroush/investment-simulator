@@ -1,1 +1,1 @@
-# wealth-simulator
+# investment-simulator
