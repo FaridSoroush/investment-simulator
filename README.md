@@ -38,9 +38,9 @@ Each year, the simulator:
 
 ---
 
-## Screenshot
+## Snapshot
 
-![Investment Simulator Screenshot](snapshot.png)  <!-- Optional: replace with your own hosted image -->
+![Investment Simulator Screenshot](snapshot.png) 
 
 ---
 
