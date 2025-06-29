@@ -2,10 +2,6 @@
 
 A Streamlit-based interactive simulator for modeling long-term investment growth using income, tax, expense, and portfolio return assumptions.
 
-Developed by **Farid Soroush, Ph.D.**  
-AI/ML, Data, Quantitative Algorithms  
-Contact: soroushfarid@gmail.com
-
 **Live App:**  
 [https://investment-simulator-farid.streamlit.app](https://investment-simulator-farid.streamlit.app)
 
