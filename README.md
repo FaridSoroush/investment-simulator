@@ -40,7 +40,7 @@ Each year, the simulator:
 
 ## Snapshot
 
-![Investment Simulator Screenshot](snapshot.png) 
+![Investment Simulator Screenshot](snapshot_2.png) 
 
 ---
 
