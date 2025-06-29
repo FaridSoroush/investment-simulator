@@ -2,16 +2,14 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.set_page_config(page_title="High-Return Investment Simulator", layout="wide")
+st.set_page_config(page_title="Investment Simulator", layout="wide")
 
-st.title("High-Return Investment Wealth Simulator")
+st.title("Investment Simulator")
 
 # Layout: narrower control column
 col1, col2 = st.columns([1, 2.5])
 
 with col1:
-    st.header("Inputs")
-
     income = st.slider("Current Income ($)", 50_000, 1_500_000, 300_000, step=10_000)
     tax_rate = st.slider("Tax Rate (%)", 0, 60, 40)
     salary_growth = st.slider("Salary Growth Rate (%/year)", 0.0, 20.0, 5.0, step=0.5)
@@ -27,8 +25,6 @@ with col1:
     safe_return = st.slider("Expected Safe Return (%/year)", 0.0, 15.0, 7.0, step=0.5)
 
 with col2:
-    st.header("Results and Growth Chart")
-
     def simulate_growth(income, tax_rate, salary_growth, expenses, cost_growth,
                         init_high, high_r, init_safe, safe_r, years):
         high_bal = [init_high]
@@ -49,6 +45,15 @@ with col2:
 
         return high_bal, safe_bal
 
+    def max_drawdown(values):
+        peak = values[0]
+        max_dd = 0
+        for v in values:
+            peak = max(peak, v)
+            dd = (peak - v) / peak
+            max_dd = max(max_dd, dd)
+        return max_dd
+
     high, safe = simulate_growth(income, tax_rate, salary_growth, expenses, cost_growth,
                                  init_high, high_return, init_safe, safe_return, years)
 
@@ -59,7 +64,13 @@ with col2:
     st.write(f"• High-Return Balance: ${high[-1]:,.0f}")
     st.write(f"• Safe Investment Balance: ${safe[-1]:,.0f}")
 
-    fig, ax = plt.subplots(figsize=(8, 4))  # smaller plot size
+    # Drawdowns
+    st.write(f"• Max Drawdown (High-Return): {max_drawdown(high) * 100:.1f}%")
+    st.write(f"• Max Drawdown (Safe): {max_drawdown(safe) * 100:.1f}%")
+    st.write(f"• Max Drawdown (Total): {max_drawdown(total) * 100:.1f}%")
+
+    # Chart
+    fig, ax = plt.subplots(figsize=(8, 4))
     ax.plot(x, np.array(high) / 1e6, label="High-Return Investment")
     ax.plot(x, np.array(safe) / 1e6, label="Safe Investment")
     ax.plot(x, np.array(total) / 1e6, label="Total Net Worth", linestyle="--", linewidth=2)
@@ -70,4 +81,5 @@ with col2:
     ax.legend()
     st.pyplot(fig)
 
+    # TQQQ note
     st.caption("Historical average annual return of TQQQ: ~33% (10y), ~40% (15y), ~30% (since inception).")
