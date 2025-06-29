@@ -40,7 +40,7 @@ Each year, the simulator:
 
 ## Screenshot
 
-![Investment Simulator Screenshot](docs/screenshot.png)  <!-- Optional: replace with your own hosted image -->
+![Investment Simulator Screenshot](snapshot.png)  <!-- Optional: replace with your own hosted image -->
 
 ---
 
