@@ -6,7 +6,8 @@ A Streamlit-based interactive simulator for modeling long-term investment growth
 [https://investment-simulator-farid.streamlit.app](https://investment-simulator-farid.streamlit.app)
 
 **Medium Article:**  
-[Investment Simulator: Modeling Growth with Adjustable Financial Assumptions](https://medium.com/@soroushfarid/investment-simulator-modeling-growth-with-adjustable-financial-assumptions-d28a824223a6)
+https://medium.com/@soroushfarid/investment-simulator-modeling-growth-with-adjustable-financial-assumptions-d28a824223a6
+
 ---
 
 ## Overview
